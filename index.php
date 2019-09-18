@@ -149,14 +149,14 @@ function getSourceRoot()
     $path = '';
     $list = scandir(dirname(__FILE__));
     foreach ($list as $item) {
-      if (preg_match('~^\.content\.[0-9a-zA-Z]+$~', $item) && is_dir(__DIR__ . DIRECTORY_SEPARATOR . $item)) {
+      if (preg_match('~^\content\.[0-9a-zA-Z]+$~', $item) && is_dir(__DIR__ . DIRECTORY_SEPARATOR . $item)) {
         $path = $item;
         break;
       }
     }
     if (!$path) {
-      header('X-Error-Description: Folder .content.xxxxxxxx not found');
-      throw new \Exception('Folder .content.xxxxxxxx not found');
+      header('X-Error-Description: Folder content.xxxxxxxx not found');
+      throw new \Exception('Folder content.xxxxxxxx not found');
     }
   }
   $absolutePath = dirname(__FILE__) . DIRECTORY_SEPARATOR . $path;
